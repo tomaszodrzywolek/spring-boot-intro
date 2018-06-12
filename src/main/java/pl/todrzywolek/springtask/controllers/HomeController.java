@@ -1,4 +1,4 @@
-package pl.todrzywolek.springtask;
+package pl.todrzywolek.springtask.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

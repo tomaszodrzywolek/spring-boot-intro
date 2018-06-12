@@ -1,4 +1,4 @@
-package pl.todrzywolek.springtask;
+package pl.todrzywolek.springtask.model;
 
 public class Fibonacci {
 

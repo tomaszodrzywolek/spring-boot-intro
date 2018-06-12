@@ -1,6 +1,7 @@
-package pl.todrzywolek.springtask;
+package pl.todrzywolek.springtask.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import pl.todrzywolek.springtask.model.Fibonacci;
 
 @RestController
 public class FibonacciController {

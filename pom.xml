@@ -8,6 +8,12 @@
     <artifactId>spring-boot-task</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <docker.image.prefix>todrzywolek</docker.image.prefix>
+        <jjwt.version>0.7.0</jjwt.version>
+    </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -42,13 +48,16 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt</artifactId>
+        <version>${jjwt.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
     </dependencies>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <docker.image.prefix>todrzywolek</docker.image.prefix>
-    </properties>
-
 
     <build>
         <plugins>
@@ -82,6 +91,4 @@
             <url>https://repo.spring.io/libs-release</url>
         </pluginRepository>
     </pluginRepositories>
-
-
 </project>
