@@ -1,6 +1,7 @@
 package pl.todrzywolek.springtask.config;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +20,8 @@ import pl.todrzywolek.springtask.security.TokenAuthenticationFilter;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Autowired
     private RestAuthenticationEntryPoint restAuthenticationEntryPoint;
 
     // In memory user details service with one user

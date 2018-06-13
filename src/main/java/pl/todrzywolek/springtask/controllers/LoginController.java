@@ -47,6 +47,7 @@ public class LoginController {
         // Inject into security context
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
+
         // token creation
         String jws = tokenHelper.generateToken(authenticationRequest.getUsername());
         long expires_in = tokenHelper.getEXPIRES_IN();

@@ -64,7 +64,6 @@ public class TokenHelper {
                     .setSigningKey(this.SECRET)
                     .parseClaimsJws(token)
                     .getBody();
-            System.out.println("Claims: " + claims);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             claims = null;
