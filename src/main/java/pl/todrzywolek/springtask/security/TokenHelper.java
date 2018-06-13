@@ -1,11 +1,9 @@
 package pl.todrzywolek.springtask.security;
 
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.joda.time.DateTime;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,13 +13,9 @@ import java.util.Date;
 public class TokenHelper {
 
     private String APP_NAME = "app";
-
     private String SECRET = "secret";
-
-    private int EXPIRES_IN = 5;
-
-    private String AUTH_HEADER = "header";
-
+    private int EXPIRES_IN = 300; // 5 minutes
+    private String AUTH_HEADER = "authorization";
     private SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS512;
 
     public String getUsernameFromToken(String token) {
@@ -47,6 +41,10 @@ public class TokenHelper {
         return jws;
     }
 
+    public int getEXPIRES_IN() {
+        return EXPIRES_IN;
+    }
+
     private Date generateExpirationDate() {
         return new Date(getCurrentTimeMillis() + this.EXPIRES_IN * 1000);
     }
@@ -66,7 +64,9 @@ public class TokenHelper {
                     .setSigningKey(this.SECRET)
                     .parseClaimsJws(token)
                     .getBody();
+            System.out.println("Claims: " + claims);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             claims = null;
         }
         return claims;

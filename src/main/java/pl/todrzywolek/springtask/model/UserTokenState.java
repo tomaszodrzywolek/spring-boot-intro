@@ -9,7 +9,7 @@ public class UserTokenState {
         this.expires_in = null;
     }
 
-    public UserTokenState(String access_token) {
+    public UserTokenState(String access_token, Long expires_in) {
         this.access_token = access_token;
         this.expires_in = expires_in;
     }

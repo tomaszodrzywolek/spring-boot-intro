@@ -8,6 +8,8 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index() {
-        return "Greetings from Spring Boot";
+        return "Type /isFibbo/{number} in URL to check" +
+                "if number is Fibonacci number./n" +
+                "You have to be a user to see that.";
     }
 }

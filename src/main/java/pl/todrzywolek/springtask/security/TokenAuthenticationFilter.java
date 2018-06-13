@@ -1,7 +1,6 @@
 package pl.todrzywolek.springtask.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -52,14 +51,9 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
             }
 
         }
-        else {
-            error = "Authentication failed - no Bearer token provided.";
-        }
         if (!error.equals("")) {
-            System.out.println(error);
             SecurityContextHolder.getContext().setAuthentication(new AnonAuthentication()); // prevent show login form
         }
         chain.doFilter(request, response);
-
     }
 }

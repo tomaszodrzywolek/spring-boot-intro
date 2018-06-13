@@ -49,7 +49,8 @@ public class LoginController {
 
         // token creation
         String jws = tokenHelper.generateToken(authenticationRequest.getUsername());
+        long expires_in = tokenHelper.getEXPIRES_IN();
 
-        return ResponseEntity.ok(new UserTokenState(jws));
+        return ResponseEntity.ok(new UserTokenState(jws, expires_in));
     }
 }
